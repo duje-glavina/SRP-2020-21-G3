@@ -1,0 +1,17 @@
+const winston = require("winston");
+//const { loginServiceInstance } = require("../../services");
+
+const Logger = winston.loggers.get("logger");
+
+
+exports.login = async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    //const user = await loginServiceInstance.getUser({ username, password });
+    res.json({ message "Login successful" });
+  } catch (err) {
+    Logger.error(err);
+    return res.status(400).json({ error: { message: err.message } });
+  }
+};
+
